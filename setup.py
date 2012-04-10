@@ -15,7 +15,7 @@ setup(
     url = 'https://github.com/kaleidos/django-kvideos',
     license = 'BSD',
     include_package_data = True,
-    packages = ['kvideos',],
+    packages = find_packages(),
     package_data={
         'kvideos': [
             'templates/kvideos/*',

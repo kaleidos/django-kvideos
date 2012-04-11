@@ -21,6 +21,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.staticfiles',
     'kvideos',
+    'kvideos.tests',
 ]
 
 LANGUAGE_CODE = 'en'

@@ -18,8 +18,12 @@ class Video(models.Model):
     content_type = models.ForeignKey(ContentType)
     object_id = models.PositiveIntegerField()
     content_object = generic.GenericForeignKey('content_type', 'object_id')
-    typ = models.SlugField(max_length=25, choices=SERVICE_CHOICES, verbose_name=_(u'type'))
-    code = models.CharField(max_length=100, verbose_name=_(u'code'))
+    title = models.CharField(max_length=150, verbose_name=_(u'title'))
+    description = models.TextField(verbose_name=_(u'description'))
+    typ = models.SlugField(max_length=25, choices=SERVICE_CHOICES,
+                           verbose_name=_(u'type'), null=False, blank=False)
+    code = models.CharField(max_length=100, verbose_name=_(u'code'),
+                            null=False, blank=False)
 
     def clean(self):
         if self.typ == "youtube":

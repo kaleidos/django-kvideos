@@ -1,11 +1,11 @@
 from django.test import TestCase
-from ..models import Video
+from kvideos.models import Video
 from .models import TestModel
 from django.core.exceptions import ValidationError
 from django.template import TemplateSyntaxError, Template, Context
 
 YOUTUBE_VALID_CODE = "dR14UepDQqk"
-VIMEO_VALID_CODE = "39756760"
+VIMEO_VALID_CODE = "45402998"
 
 class KVideosModelTest(TestCase):
     def setUp(self):
@@ -15,7 +15,7 @@ class KVideosModelTest(TestCase):
         self.invalid_youtube_code = "invalid"
         self.valid_vimeo_code = VIMEO_VALID_CODE
         self.invalid_vimeo_code = "invalid"
-        
+
     def test_clean(self):
         self.assertEqual(None, Video(content_object=self.test, typ="youtube", code=self.valid_youtube_code).clean())
         with self.assertRaises(ValidationError):
@@ -45,10 +45,10 @@ class KVideosTemplateTagTest(TestCase):
         self.assertEqual(rendered,expected_result)
 
         rendered = with_size_template.render(Context({ 'video': self.vimeo_video }))
-        expected_result = '<iframe src="http://player.vimeo.com/video/39756760?title=0&amp;byline=0&amp;portrait=0" '
+        expected_result = '<iframe src="http://player.vimeo.com/video/45402998?title=0&amp;byline=0&amp;portrait=0" '
         expected_result += 'width="320" height="240" frameborder="0" webkitAllowFullScreen '
         expected_result += 'mozallowfullscreen allowFullScreen>\n</iframe>\n'
-          
+
         self.assertEqual(rendered,expected_result)
 
         rendered = no_size_template.render(Context({ 'video': self.youtube_video }))
@@ -58,7 +58,7 @@ class KVideosTemplateTagTest(TestCase):
         self.assertEqual(rendered,expected_result)
 
         rendered = no_size_template.render(Context({ 'video': self.vimeo_video }))
-        expected_result = '<iframe src="http://player.vimeo.com/video/39756760?title=0&amp;byline=0&amp;portrait=0" '
+        expected_result = '<iframe src="http://player.vimeo.com/video/45402998?title=0&amp;byline=0&amp;portrait=0" '
         expected_result += 'width="640" height="480" frameborder="0" webkitAllowFullScreen '
         expected_result += 'mozallowfullscreen allowFullScreen>\n</iframe>\n'
         self.assertEqual(rendered,expected_result)

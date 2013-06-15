@@ -18,8 +18,10 @@ class Video(models.Model):
     content_type = models.ForeignKey(ContentType)
     object_id = models.PositiveIntegerField()
     content_object = generic.GenericForeignKey('content_type', 'object_id')
-    title = models.CharField(max_length=150, verbose_name=_(u'title'))
-    description = models.TextField(verbose_name=_(u'description'))
+    title = models.CharField(max_length=150, verbose_name=_(u'title'),
+                             null=True, blank=True)
+    description = models.TextField(verbose_name=_(u'description'), null=True,
+                                   blank=True)
     typ = models.SlugField(max_length=25, choices=SERVICE_CHOICES,
                            verbose_name=_(u'type'), null=False, blank=False)
     code = models.CharField(max_length=100, verbose_name=_(u'code'),

@@ -1,6 +1,18 @@
 Django Kaleidos Videos
 ======================
 
+.. image:: https://travis-ci.org/kaleidos/django-kvideos.png?branch=master
+    :target: https://travis-ci.org/kaleidos/django-kvideos
+
+.. image:: https://coveralls.io/repos/kaleidos/django-kvideos/badge.png?branch=master
+    :target: https://coveralls.io/r/kaleidos/django-kvideos?branch=master
+
+.. image:: https://pypip.in/v/django-kvideos/badge.png
+    :target: https://crate.io/packages/django-kvideos
+
+.. image:: https://pypip.in/d/django-kvideos/badge.png
+    :target: https://crate.io/packages/django-kvideos
+
 Django Kaleidos Videos is a django application for add videos (from services
 like youtube or vimeo) to any model.
 
